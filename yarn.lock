@@ -1728,6 +1728,13 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
+"@ngrx/signals@^19.1.0":
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/signals/-/signals-19.1.0.tgz#1ff62c5c019f08e1a37692e077f46832570871ba"
+  integrity sha512-v8sbb+Iox9kdIaKbFgt4Z1W+NxzIU4+g+6qQU6/c27UmtQXv0s1zUKKofPRK0qwkaZzNWkxNToxyoE285ukqcQ==
+  dependencies:
+    tslib "^2.3.0"
+
 "@ngrx/store@19.1.0":
   version "19.1.0"
   resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-19.1.0.tgz#9a35fe7b327486241157d75341f2de4c08545d53"
@@ -3350,6 +3357,11 @@ domutils@^3.0.1, domutils@^3.2.1:
     dom-serializer "^2.0.0"
     domelementtype "^2.3.0"
     domhandler "^5.0.3"
+
+dotenv@^16.5.0:
+  version "16.5.0"
+  resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.5.0.tgz#092b49f25f808f020050051d1ff258e404c78692"
+  integrity sha512-m/C+AwOAr9/W1UOIZUo232ejMNnJAJtYQjUbHoNTBNTJSvqzzDh7vnrei3o3r3m9blf6ZoDkvcw0VmozNRFJxg==
 
 dunder-proto@^1.0.1:
   version "1.0.1"

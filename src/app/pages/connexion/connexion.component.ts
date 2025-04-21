@@ -1,12 +1,21 @@
 import { Component } from '@angular/core';
-import {HeaderComponent} from '../../shared/header/header.component'
+import { UserStore } from '../../store/users/users.state'
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-connexion',
-  imports: [HeaderComponent],
+  imports: [FormsModule],
   templateUrl: './connexion.component.html',
-  styleUrl: './connexion.component.scss'
+  styleUrl: './connexion.component.scss',
+  providers:[UserStore]
 })
-export class ConnexionComponent {
 
+export class ConnexionComponent {
+  email: string = '';
+  password: string ='';
+
+  onSubmit() {
+    console.log('Email:', this.email);
+    console.log('Mot de passe:', this.password);
+  }
 }

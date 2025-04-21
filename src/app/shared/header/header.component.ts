@@ -1,32 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { Store } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { login, logout } from '../../store/auth.actions';
-import { AuthState } from '../../store/auth.reducer';
+import { UserStore } from '../../store/users/users.state'
 
 @Component({
   selector: 'app-header',
   imports: [CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.scss'
+  styleUrl: './header.component.scss',
+  providers:[UserStore]
 })
 
 export class HeaderComponent {
-  isAuthenticated$: Observable<boolean>;
+  user = inject(UserStore)
+  userSignal = this.user.user
 
-  constructor(private router: Router, private store: Store<{ auth: AuthState }>) {
-    this.isAuthenticated$ = this.store.select(state => state.auth.isAuthenticated);
+  constructor(private router: Router) {
   }
 
   redirectToPage() {
-    this.store.dispatch(login()); // met à jour l'état dans le store
     this.router.navigate(['/login']);
   }
 
   redirectToHomePage() {
-    this.store.dispatch(logout());
     this.router.navigate(['/']);
   }
 }
