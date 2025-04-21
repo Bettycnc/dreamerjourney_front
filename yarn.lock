@@ -1728,6 +1728,13 @@
     "@napi-rs/nice-win32-ia32-msvc" "1.0.1"
     "@napi-rs/nice-win32-x64-msvc" "1.0.1"
 
+"@ngrx/store@19.1.0":
+  version "19.1.0"
+  resolved "https://registry.yarnpkg.com/@ngrx/store/-/store-19.1.0.tgz#9a35fe7b327486241157d75341f2de4c08545d53"
+  integrity sha512-8kKCSFahTpRTx3f/wwcDjItdFnk2IMoorWRjTI2U/MGWuEi4flqLNWcX99s759e7TI6PctiGsaS8jnJXIUS8Jg==
+  dependencies:
+    tslib "^2.0.0"
+
 "@ngtools/webpack@19.2.8":
   version "19.2.8"
   resolved "https://registry.yarnpkg.com/@ngtools/webpack/-/webpack-19.2.8.tgz#13470efeae8142e669d5c744a3d1f96499b548e8"

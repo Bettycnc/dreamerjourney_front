@@ -1,0 +1,8 @@
+<header>
+    <img class="logo" src='/Logo.png' alt='DreamerJourney'/>
+    <nav>
+      <button class="button" (click)="redirectToPage()" *ngIf="isAuthenticated$">Connexion</button>
+      <button class="button" >Inscription</button>
+      <button class="button" (click)="redirectToHomePage()">Déconnexion</button>
+    </nav>
+</header>

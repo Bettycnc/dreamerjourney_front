@@ -1,0 +1,21 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.logo {
+    width: 22vw;  
+    height: auto;
+}
+
+.button{
+    border: none;
+    background-color: transparent;
+    font-size: medium;
+}
+
+.button:hover{
+    cursor: pointer;
+}
