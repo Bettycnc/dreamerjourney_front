@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class ConnexionComponent {
+  errorMessage = '';
   email: string = '';
   password: string ='';
   userStore = inject(UserStore);
@@ -30,7 +31,8 @@ export class ConnexionComponent {
         this.router.navigate(['/']); //redirection vers la page home
       },
       error: (err) => {
-        console.error('Échec de la connexion', err.error.detail);
+        console.error('Échec de la connexion', err);
+        this.errorMessage = 'Email ou mot de passe incorrect.';
       }
     });
   }
