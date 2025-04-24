@@ -1,15 +1,23 @@
 <app-header></app-header>
 <main>
   <div class="firstPart">
-    <img class="picture" src='/baieHalong.jpg' alt='Baie Halong'/>
-    <div class="text">
-      <h1>Créez le voyage qui vous ressemble !</h1>
-      <p>Envie d’une escapade sur mesure ? <br/><br/><br/>
-          Imaginez votre séjour idéal en quelques clics : choisissez votre destination, 
-          la durée, le nombre de voyageurs et vos envies (nature, culture, détente, aventure…).<br/><br/><br/><br/>
-          Nous nous chargeons du reste pour vous proposer une expérience unique, taillée à votre image. 
-          Parce que chaque voyage est une histoire à écrire… <span class="textBold"> et la vôtre commence ici ! </span></p>
-    </div>
+    <ng-container *ngIf="userSignal(); else notConnected">
+      <div>
+        <h2>Commencer à créer votre voyage</h2>
+        <input type="text" placeholder="Pays">
+      </div>
+    </ng-container>
+    <ng-template #notConnected>
+      <img class="picture" src='/baieHalong.jpg' alt='Baie Halong'/>
+      <div class="text">
+        <h1>Créez le voyage qui vous ressemble !</h1>
+        <p>Envie d’une escapade sur mesure ? <br/><br/><br/>
+            Imaginez votre séjour idéal en quelques clics : choisissez votre destination, 
+            la durée, le nombre de voyageurs et vos envies (nature, culture, détente, aventure…).<br/><br/><br/><br/>
+            Nous nous chargeons du reste pour vous proposer une expérience unique, taillée à votre image. 
+            Parce que chaque voyage est une histoire à écrire… <span class="textBold"> et la vôtre commence ici ! </span></p>
+      </div>
+    </ng-template>
   </div>
   <div class="secondPart">
     <div class="classPart">

@@ -1,8 +1,0 @@
-<header>
-    <img class="logo" src='/Logo.png' alt='DreamerJourney'/>
-    <nav>
-      <button class="button" (click)="redirectToPage()" *ngIf="!userSignal()">Connexion</button>
-      <button class="button" *ngIf="!userSignal()">Inscription</button>
-      <button class="button" (click)="redirectToHomePage()" *ngIf="userSignal()">Déconnexion</button>
-    </nav>
-</header>

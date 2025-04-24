@@ -6,23 +6,51 @@ import { UserStore } from '../../store/users/users.state'
 @Component({
   selector: 'app-header',
   imports: [CommonModule],
-  templateUrl: './header.component.html',
+  template: `
+      <header>
+        <img class="logo" src='/Logo.png' alt='DreamerJourney'/>
+        <nav>
+          <button class="button" (click)="redirectToPageLogin()" *ngIf="!userSignal()">Connexion</button>
+          <button class="button" (click)="redirectToPageCreateUser()" *ngIf="!userSignal()">Inscription</button>
+          <p *ngIf="userSignal()">Bonjour {{ userSignal()?.username}}</p>
+          <button class="button" (click)="redirectToHomePage()" *ngIf="userSignal()">Déconnexion</button>
+        </nav>
+      </header>
+  `,
   styleUrl: './header.component.scss',
-  providers:[UserStore]
 })
 
 export class HeaderComponent {
-  user = inject(UserStore)
-  userSignal = this.user.user
+
+  ngOnInit(): void {
+    const token = localStorage.getItem('token');
+    if (token) {
+      const username = localStorage.getItem('username');
+      
+      // Charger l'état dans le store
+      this.userStore.login({
+        token: token,
+        username: username || '',  
+      });
+    }
+  }
+
+  userStore = inject(UserStore)
+  userSignal = this.userStore.user
 
   constructor(private router: Router) {
   }
 
-  redirectToPage() {
+  redirectToPageLogin() {
     this.router.navigate(['/login']);
   }
 
+  redirectToPageCreateUser() {
+    this.router.navigate(['/createUser']);
+  }
+
   redirectToHomePage() {
+    this.userStore.logout()
     this.router.navigate(['/']);
   }
 }

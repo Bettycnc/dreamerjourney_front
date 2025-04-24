@@ -5,20 +5,21 @@ import {UserService} from '../../user.service'
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-connexion',
+  selector: 'app-inscription',
   imports: [FormsModule],
-  templateUrl: './connexion.component.html',
-  styleUrl: './connexion.component.scss',
+  templateUrl: './inscription.component.html',
+  styleUrl: './inscription.component.scss',
 })
 
-export class ConnexionComponent {
+export class InscriptionComponent {
   email: string = '';
   password: string ='';
+  username: string ='';
   userStore = inject(UserStore);
   constructor(private userService: UserService, private router: Router) {}
 
   onSubmit() {
-    this.userService.signin({ email : this.email, password: this.password}).subscribe({
+    this.userService.createUser({ email : this.email, password: this.password, username: this.username}).subscribe({
       next: (res) => {
         console.log(res.message); // "Utilisateur connecté avec succès"
         localStorage.setItem('token', res.access_token); 
@@ -36,6 +37,6 @@ export class ConnexionComponent {
   }
 
   onRedirect() {
-    this.router.navigate(['/createUser']);
+    this.router.navigate(['/login']);
   }
 }
