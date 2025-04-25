@@ -2,10 +2,7 @@
 <main>
   <div class="firstPart">
     <ng-container *ngIf="userSignal(); else notConnected">
-      <div>
-        <h2>Commencer à créer votre voyage</h2>
-        <input type="text" placeholder="Pays">
-      </div>
+      <app-journey></app-journey>
     </ng-container>
     <ng-template #notConnected>
       <img class="picture" src='/baieHalong.jpg' alt='Baie Halong'/>

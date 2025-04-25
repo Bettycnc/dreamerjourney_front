@@ -3,16 +3,19 @@ import { UserStore } from '../../store/users/users.state'
 import { FormsModule } from '@angular/forms';
 import {UserService} from '../../user.service'
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-inscription',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './inscription.component.html',
   styleUrl: './inscription.component.scss',
 })
 
 export class InscriptionComponent {
-  errorMessage= '';
+  errorMessage: string ='';
+  errorUsername: boolean = false
+  errorEmail: boolean = false
   email: string = '';
   password: string ='';
   username: string ='';
@@ -35,12 +38,22 @@ export class InscriptionComponent {
         console.error('Échec de la connexion', err.error.detail);
         if (err.error.detail === 'Username déjà utilisé') {
           this.errorMessage = 'Username déjà utilisé';
+          this.errorUsername = true
         } 
         if (err.error.detail === 'Email déjà utilisé') {
           this.errorMessage = 'Email déjà utilisé';
+          this.errorEmail = true
         }
       }
     });
+  }
+
+  resetEmailError() {
+    this.errorEmail= false
+  }
+
+  resetUsernameError() {
+    this.errorUsername= false
   }
 
   onRedirect() {

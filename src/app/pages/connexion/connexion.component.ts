@@ -3,16 +3,18 @@ import { UserStore } from '../../store/users/users.state'
 import { FormsModule } from '@angular/forms';
 import {UserService} from '../../user.service'
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-connexion',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './connexion.component.html',
   styleUrl: './connexion.component.scss',
 })
 
 export class ConnexionComponent {
-  errorMessage = '';
+  errorMessage: string ='';
+  errorPresence: boolean = false;
   email: string = '';
   password: string ='';
   userStore = inject(UserStore);
@@ -31,8 +33,9 @@ export class ConnexionComponent {
         this.router.navigate(['/']); //redirection vers la page home
       },
       error: (err) => {
-        console.error('Échec de la connexion', err);
+        console.error('Échec de la connexion', err.error.detail);
         this.errorMessage = 'Email ou mot de passe incorrect.';
+        this.errorPresence= true
       }
     });
   }

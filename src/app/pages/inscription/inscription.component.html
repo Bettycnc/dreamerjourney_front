@@ -3,8 +3,10 @@
     </div>
     <div class="rightSection">
         <h4>Vos informations</h4>
-        <input class="input" type="text" placeholder="Identifiant" [(ngModel)]="username">
-        <input class="input" type="text" placeholder="Email" [(ngModel)]="email">
+        <p class="errorMessage" *ngIf="errorUsername">Identifiant déjà utilisé</p>
+        <p class="errorMessage" *ngIf="errorEmail">Email déjà utilisé</p>
+        <input class="input" type="text" placeholder="Identifiant" [(ngModel)]="username" (ngModelChange)="resetUsernameError()">
+        <input class="input" type="text" placeholder="Email" [(ngModel)]="email" (ngModelChange)="resetEmailError()">
         <input class="input" type="password" placeholder="Mot de passe" [(ngModel)]="password">
         <button (click)="onSubmit()">S'inscrire</button>
         <p>Déja inscrit ? Cliquez<button (click)="onRedirect()">ici</button></p>

@@ -12,8 +12,10 @@ import { UserStore } from '../../store/users/users.state'
         <nav>
           <button class="button" (click)="redirectToPageLogin()" *ngIf="!userSignal()">Connexion</button>
           <button class="button" (click)="redirectToPageCreateUser()" *ngIf="!userSignal()">Inscription</button>
-          <p *ngIf="userSignal()">Bonjour {{ userSignal()?.username}}</p>
-          <button class="button" (click)="redirectToHomePage()" *ngIf="userSignal()">Déconnexion</button>
+          <div class='deconnecter'>
+            <p *ngIf="userSignal()">Bonjour {{ userSignal()?.username}}</p>
+            <button class="button" (click)="redirectToHomePage()" *ngIf="userSignal()">Déconnexion</button>
+          </div>
         </nav>
       </header>
   `,

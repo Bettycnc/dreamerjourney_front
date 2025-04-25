@@ -3,10 +3,11 @@ import {HeaderComponent} from '../../shared/header/header.component'
 import { UserStore } from '../../store/users/users.state';
 import { ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import {JourneyComponent} from '../../component/journey/journey.component'
 
 @Component({
   selector: 'app-home',
-  imports: [HeaderComponent, CommonModule],
+  imports: [HeaderComponent, CommonModule, JourneyComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })

@@ -3,6 +3,7 @@
     </div>
     <div class="rightSection">
         <h4>Vos informations</h4>
+        <p class="errorMessage" *ngIf="errorPresence">Mot de passe ou email incorrect</p>
         <input class="input" type="text" placeholder="Email" [(ngModel)]="email">
         <input class="input" type="password" placeholder="Mot de passe" [(ngModel)]="password">
         <button (click)="onSubmit()">Se connecter</button>
