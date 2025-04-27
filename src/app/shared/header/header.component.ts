@@ -8,14 +8,14 @@ import { UserStore } from '../../store/users/users.state'
   imports: [CommonModule],
   template: `
       <header>
-        <img class="logo" src='/Logo.png' alt='DreamerJourney'/>
+        <div class="Logocontainer">
+          <img class="logo" src='/Logo.svg' alt='Nomad'/>
+        </div>
         <nav>
+          <button class="button" >Accueil</button>
           <button class="button" (click)="redirectToPageLogin()" *ngIf="!userSignal()">Connexion</button>
           <button class="button" (click)="redirectToPageCreateUser()" *ngIf="!userSignal()">Inscription</button>
-          <div class='deconnecter'>
-            <p *ngIf="userSignal()">Bonjour {{ userSignal()?.username}}</p>
-            <button class="button" (click)="redirectToHomePage()" *ngIf="userSignal()">Déconnexion</button>
-          </div>
+          <button class="button" (click)="deconnection()" *ngIf="userSignal()">Déconnexion</button>
         </nav>
       </header>
   `,
@@ -29,7 +29,6 @@ export class HeaderComponent {
     if (token) {
       const username = localStorage.getItem('username');
       
-      // Charger l'état dans le store
       this.userStore.login({
         token: token,
         username: username || '',  
@@ -51,8 +50,12 @@ export class HeaderComponent {
     this.router.navigate(['/createUser']);
   }
 
-  redirectToHomePage() {
+  deconnection() {
     this.userStore.logout()
     this.router.navigate(['/']);
+  }
+
+  redirectToHomePage() {
+    this.router.navigate(['/'])
   }
 }

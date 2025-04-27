@@ -1,13 +1,26 @@
 header{
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: 20px;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.Logocontainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
 }
 
 .logo {
-    width: 22vw;  
+    width: 16vw;  
     height: auto;
+}
+
+nav{
+    padding-top: 20px;
 }
 
 .button{
@@ -15,6 +28,7 @@ header{
     background-color: transparent;
     font-size: medium;
 }
+
 
 .button:hover{
     cursor: pointer;

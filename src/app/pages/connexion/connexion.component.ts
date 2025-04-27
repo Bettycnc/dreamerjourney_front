@@ -23,14 +23,14 @@ export class ConnexionComponent {
   onSubmit() {
     this.userService.signin({ email : this.email, password: this.password}).subscribe({
       next: (res) => {
-        console.log(res.message); // "Utilisateur connecté avec succès"
+        console.log(res.message); 
         localStorage.setItem('token', res.access_token); 
         localStorage.setItem('username', res.username); 
         this.userStore.login({
           token: res.access_token,
           username: res.username
         });
-        this.router.navigate(['/']); //redirection vers la page home
+        this.router.navigate(['/']);
       },
       error: (err) => {
         console.error('Échec de la connexion', err.error.detail);

@@ -1,5 +1,48 @@
-<div>
+<div class="container">
     <h2>Commencer à créer votre voyage</h2>
-    <input type="text" placeholder="Pays">
+    <div>
+        <label for="country-input">Choix du Pays</label>
+        <input type="text" placeholder="Pays" [(ngModel)]="country" class="small-input">
+    </div>
+    <div>
+        <label for="duration-select">Durée du voyage</label>
+        <select name="duration" id="duration-select" class="small-input" [(ngModel)]="selectedDuration">
+        <option value="" selected>Choisir la durée</option>
+        <option value="2jours">2 jours</option>
+        <option value="3jours">3 jours</option>
+        <option value="1semaine">1 semaine</option>
+        <option value="2semaines">2 semaines</option>
+        <option value="3semaines">3 semaines</option>
+        <option value="1mois">1 mois</option>
+    </select>
+    </div>
+    <div>
+        <p>Nombre de participants :</p>
+        <button class="paticipantButton" (click)="decrementCounter()" >-</button>{{ ParticipantCounter }}<button class="paticipantButton" (click)="incrementCounter()" >+</button>
+    </div>
+    <div>
+        <label for="country-input">Budget par personne</label>
+        <input type="text" placeholder="200€" [(ngModel)]="budget" class="small-input">
+    </div>
+    <div>
+        <p>Expériences recherchées :</p>
+        <button [ngClass]="{'active': adventure}" (click)="addAdventure()">Aventure</button>
+        <button [ngClass]="{'active': nature}" (click)="addNature()">Nature</button>
+        <button [ngClass]="{'active': city}" (click)="addCity()">Ville</button>
+        <button [ngClass]="{'active': farniente}" (click)="addFarniente()">Farniente</button>
+        <button [ngClass]="{'active': culture}" (click)="addCulture()">Culture</button>
+        <button [ngClass]="{'active': wellBeing}" (click)="addWellBeing()">Bien-être</button>
+        <button [ngClass]="{'active': hiking}" (click)="addHiking()">Randonnée</button>
+        <button [ngClass]="{'active': gastronomy}" (click)="addGastronomy()">Gastronomie</button>
+    </div>
+    <div class="precisionContaint">
+        <label for="precision-input">Précision</label>
+        <textarea placeholder="Ajoutez vos envies" [(ngModel)]="precision" class="large-textarea"></textarea>
+    </div>
+    <button (click)="CreateJourney()" class="submit-button">Créer</button>
 
+    <div *ngIf="showGeneratedJourney" class="journey-result">
+        <h2>Ton voyage est prêt :</h2>
+        <p>{{ generatedJourneyText }}</p>
+    </div>
 </div>

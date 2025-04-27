@@ -1,0 +1,134 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #fafafa; 
+    color: #333; 
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px; 
+    margin: 60px auto;
+    padding: 40px 30px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 28px;
+    color: #2c3e50; 
+    margin-bottom: 40px; 
+}
+
+label, p {
+    font-weight: 500;
+    font-size: 16px;
+    margin-bottom: 12px; 
+    color: #5d6d7e; 
+}
+
+input[type="text"], select, textarea {
+    width: 70%;  
+    padding: 12px;
+    font-size: 14px;
+    border: 1px solid #a2b9cb;  
+    border-radius: 8px;
+    background-color: #f9f9f9; 
+    color: #333; 
+    box-sizing: border-box;
+    margin-bottom: 20px; 
+    display: block;
+    margin-top: 10px;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: #2980b9;  
+    outline: none;  
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3); 
+}
+
+button {
+    background-color: #ffffff;
+    border: 1px solid #2c648a; 
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #2c648a;
+    cursor: pointer;
+    margin: 5px
+}
+
+button:hover {
+    background-color: #2980b9;  
+    color: white;  
+}
+
+button.active {
+    background-color: #2980b9;
+    color: white;
+    border-color: #2980b9;
+}
+
+button.submit-button {
+    background-color: #2980b9; 
+    color: white;
+    font-weight: bold;
+    padding: 18px 24px;  
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    margin-top: 40px; 
+    transition: background-color 0.3s;
+    display: block; 
+    width: 80%; 
+    margin-left: 10%;
+}
+
+button.submit-button:hover {
+    background-color: #21618c;  /* Bleu plus sombre au hover */
+}
+
+textarea {
+    width: 100%;
+    padding: 14px;
+    height: 120px; 
+    border: 1px solid #a2b9cb; 
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #f9f9f9;
+    color: #333;
+    resize: vertical; 
+    transition: all 0.3s ease;
+    margin-bottom: 20px; 
+    margin-top:10px
+}
+
+
+textarea:focus {
+    border-color: #2980b9;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+    outline: none;
+}
+
+.precisionContaint{
+    margin-top:20px
+}
+
+.small-input {
+    width: 70%;
+    display: block;
+}
+
+.paticipantButton{
+    margin-left: 20px;
+    margin-right: 20px
+}
+
+.journey-result {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f0f8ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
+}
